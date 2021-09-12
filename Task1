@@ -1,0 +1,16 @@
+class Task1 {
+    public static void main(String[] args) {
+        int IntroTask3Digits = 100;
+        int sum = 1;
+        for (int i = 0; i < 4; i = i + 1){
+            IntroTask3Digits = IntroTask3Digits / 10;
+            if (IntroTask3Digits> 0) {
+                sum += 1;
+            }
+        }
+        if (sum == 3)
+            System.out.println("3");
+        else
+            System.out.println("не 3");
+    }
+}
