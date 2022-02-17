@@ -3,7 +3,7 @@
     <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../openjdk/jdk-17" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
-    <option name="MAIN_CLASS_NAME" value="jvmjvm" />
+    <option name="MAIN_CLASS_NAME" value="Time" />
     <option name="PROGRAM_PARAMETERS" value="$JavaDocPath$" />
     <option name="REDIRECT_INPUT" value="true" />
     <option name="INPUT_FILE" value="$PROJECT_DIR$/../../../../openjdk/jdk-17" />
