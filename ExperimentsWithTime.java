@@ -82,6 +82,7 @@ class Time {
                 this.hour = this.hour % 24;
             }
         }
+        System.out.println("time update "+add_minets);
     }
 
     // вывод с пожеланием
@@ -91,17 +92,26 @@ class Time {
         System.out.println(greeting + " сейчас " + time);
     }
 
+    //просто класс main
     public static void main(String[] args) {
-        Time dinner = new Time(18, 34);
         Time breakfast = new Time(9, 25);
         Time lunch = new Time(14, 00);
-        Time good_higt = new Time (22, 50);
+        Time dinner = new Time(18, 34);
+        Time good_higt = new Time(22, 50);
 
-        dinner.printer();
         breakfast.printer();
         lunch.printer();
+        dinner.printer();
         good_higt.printer();
         good_higt.add(30);
         good_higt.printer();
+
+        //предпологается выдача:
+        //Доброе утро сейчас 9 : 25
+        //Добрый день сейчас 14 : 00
+        //Добрый вечер сейчас 18 : 34
+        //Добрый вечер сейчас 22 : 50
+        //time update 30
+        //Доброй ночи сейчас 23 : 20
     }
 }
