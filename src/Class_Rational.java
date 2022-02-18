@@ -36,5 +36,6 @@ class Rational{
             result += this.denominator;
         }
         return result;
+
     }
 }
