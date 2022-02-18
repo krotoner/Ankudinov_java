@@ -30,7 +30,8 @@ class Time {
 
     // проверка на время суток
     public boolean isDay(){
-        if (this.hour>=12 || this.hour<18){
+
+        if (this.hour>=12 && this.hour<18){
             return true;
         }
         else{
@@ -38,7 +39,7 @@ class Time {
         }
     }
     public boolean isMorning(){
-        if (this.hour>=6 || this.hour<12){
+        if (this.hour >=6 && this.hour<12){
             return true;
         }
         else{
@@ -46,7 +47,7 @@ class Time {
         }
     }
     public boolean isEvening(){
-        if (this.hour>=18 || this.hour<23){
+        if (this.hour>=18 && this.hour<23){
             return true;
         }
         else{
@@ -66,6 +67,7 @@ class Time {
     public String sayHello(){
         int time = this.hour;
         if (isMorning()){
+
             return "Доброе утро";
         }
         else if (isDay()){
@@ -115,7 +117,6 @@ class Time {
         good_higt.printer();
         good_higt.add(30);
         good_higt.printer();
-        System.out.println(good_higt.sayHello());
 
         //предпологается выдача:
         //Доброе утро сейчас 9 : 25
