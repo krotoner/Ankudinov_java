@@ -3,7 +3,7 @@ class App {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Hello world! ++++");
 
         String[][] imege= new String[8][8];
         for (int i = 0; i < imege.length; i++) {
