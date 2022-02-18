@@ -1,3 +1,4 @@
+//package java.math;
 
 import static java.lang.Math.*;
 class Drawing {
@@ -46,7 +47,7 @@ class Drawing {
         }
     }
 
-    // отрисовка одного символа
+    //создание одного символа
     public void setPoint(int x , int  y , char symbol){
         this.imege[x][y] = symbol;
     }
@@ -126,10 +127,12 @@ class Drawing {
     }
 
     public static void main(String[] args) {
-        Drawing img = new Drawing(10, 10);
-        img.draw_line(1,1,5,5, '*');
-        img.print();
+        System.out.println("\nДомик");
+        Drawing img2 = new Drawing(30, 50);
+
+        img2.print();
     }
+
 
     // возможные проблемы
     // не учтен выход за границу картинки
