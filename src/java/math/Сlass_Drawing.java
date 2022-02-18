@@ -1,3 +1,5 @@
+
+import static java.lang.Math.*;
 class Drawing {
     // данные картинки
     public int height = 1; //высота
@@ -71,9 +73,61 @@ class Drawing {
         drawVerticalLine(top_height , bottom_height , bottom_width , symbol);
     }
 
+    //создание произвольной линии
+    public void draw_line(int start_x , int start_y , int finish_x, int finish_y, char symbol) {
+        int deltax = abs(finish_x - start_x);
+        int deltay = abs(finish_y - start_y);
+        float error = 0;
+        int deltaerr = (deltay + 1) / (deltax + 1);
+        int y = start_y;
+        int diry = finish_y - start_y;
+        if (diry > 0) {
+            diry = 1;
+        }
+        if (diry< 0) {
+            diry = -1;
+        }
+        for (int x = start_x ;x < finish_x ; x++) {
+            setPoint(x, y, symbol);
+            error = error + deltaerr;
+            if (error >= 1.0) {
+                y = y + diry;
+                error = (float) - 1.0;
+            }
+        }
+    }
+
+    //создание окружности
+    public void draw_circle(int radius, int centre_x, int centre_y , char symbol) {
+        int x = 0;
+        int y = radius;
+        int delta = 1 - 2 * radius;
+        int error = 0;
+        while (y >= 0) {
+            setPoint(centre_x + x, centre_y + y, symbol);
+            setPoint(centre_x + x, centre_y - y, symbol);
+            setPoint(centre_x - x, centre_y + y, symbol);
+            setPoint(centre_x - x, centre_y - y, symbol);
+            error = 2 * (delta + y) - 1;
+            if ((delta < 0) && (error <= 0)) {
+                x += 1;
+                delta = delta + (2 * x + 1);
+                error = (2 * (delta - x)) - 1;
+            }
+            else if ((delta > 0) && (error > 0)) {
+                y -= 1;
+                delta = delta + (1 - 2 * y);
+                x += 1;
+            }
+            else
+                delta = delta + (2 * (x - y));
+                y -= 1;
+        }
+    }
+
     public static void main(String[] args) {
         Drawing img = new Drawing(10, 10);
-        img.drawVerticalLine(2,8,3,'*');
+        img.draw_line(1,1,5,5, '*');
         img.print();
     }
 
