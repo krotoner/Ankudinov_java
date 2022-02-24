@@ -1,5 +1,5 @@
 import static java.lang.Math.*;
-package ru.spbu.arts.java.oop.time;
+package ru.spbu.arts.java.oop.ascigraphics;
 public class Drawing {
 
     // данные картинки
