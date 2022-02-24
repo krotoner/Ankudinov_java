@@ -1,5 +1,5 @@
 package ru.spbu.arts.java.oop.rational;
-public class Rational{
+class Rational {
 
     //данный дроби
     private double numerator;
