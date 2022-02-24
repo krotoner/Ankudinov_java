@@ -1,4 +1,3 @@
-import static java.lang.Math.*;
 package ru.spbu.arts.java.oop.ascigraphics;
 public class Drawing {
 
@@ -6,7 +5,7 @@ public class Drawing {
     public int height = 1; //высота
     public int width = 1; //ширина
     public char symbol = '.';
-    public char [][]imege ;
+    public char [][]image ;
 
     //конструктор для класса с символом
     public  Drawing(int height , int width , char symbol) {
@@ -26,10 +25,10 @@ public class Drawing {
 
     //заполнения массива картинки
     public void new_imege(){
-        this.imege = new char[this.height][this.width];
+        this.image = new char[this.height][this.width];
         for (int i = 0; i< this.height; i++) {
             for (int j = 0; j < this.width; j++){
-                this.imege[i][j] = this.symbol;
+                this.image[i][j] = this.symbol;
             }
         }
     }
@@ -40,7 +39,7 @@ public class Drawing {
         for(int i = 0; i < this.height; i++) {
             String str = "";
             for (int j = 0; j < this.width; j++) {
-                str += this.imege[i][j];
+                str += this.image[i][j];
                 str += ' ';
             }
             System.out.println(str);
@@ -49,7 +48,7 @@ public class Drawing {
 
     //создание одного символа
     public void setPoint(int x , int  y , char symbol){
-        this.imege[x][y] = symbol;
+        this.image[x][y] = symbol;
     }
 
     //создание вертикальной линии
@@ -74,10 +73,16 @@ public class Drawing {
         drawVerticalLine(top_height , bottom_height , bottom_width , symbol);
     }
 
+    //вывод модуля (без библиотеки математики)
+    public static double abs(double value) {
+        return Double.longBitsToDouble(
+                Double.doubleToRawLongBits(value) & 0x7fffffffffffffffL);
+    }
+
     //создание произвольной линии
     public void draw_line(int start_x , int start_y , int finish_x, int finish_y, char symbol) {
-        int deltax = abs(finish_x - start_x);
-        int deltay = abs(finish_y - start_y);
+        int deltax = (int) abs(finish_x - start_x);
+        int deltay = (int) abs(finish_y - start_y);
         float error = 0;
         int deltaerr = (deltay + 1) / (deltax + 1);
         int y = start_y;
@@ -125,16 +130,6 @@ public class Drawing {
                 y -= 1;
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println("\nДомик");
-        Drawing img2 = new Drawing(30, 50);
-
-        img2.print();
-    }
-
-
     // возможные проблемы
     // не учтен выход за границу картинки
-
 }
