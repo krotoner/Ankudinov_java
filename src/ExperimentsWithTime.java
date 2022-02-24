@@ -1,3 +1,4 @@
+package ru.spbu.arts.java.oop.time;
 class Time {
 
     // формат времени 24 часа 60 минут
