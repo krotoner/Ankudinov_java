@@ -1,7 +1,7 @@
-//package java.math;
-
 import static java.lang.Math.*;
-class Drawing {
+package ru.spbu.arts.java.oop.time;
+public class Drawing {
+
     // данные картинки
     public int height = 1; //высота
     public int width = 1; //ширина
