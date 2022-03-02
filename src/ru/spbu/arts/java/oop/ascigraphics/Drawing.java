@@ -138,14 +138,13 @@ public class Drawing {
                 y -= 1;
         }
     }
-    public Drawing app_drawing(int x, int y, Drawing original) {
+    public void app_drawing(int x, int y, Drawing original) {
         Drawing newimege = new Drawing (this.height, this.width, this.image);
         for (int i = y; i < this.height; i++) {
             for (int j = x; j < this.width; j++) {
                 newimege.image[j][i] = original.image[i-y][j-x];
             }
         }
-        return newimege;
     }
     // возможные проблемы
     // не учтен выход за границу картинки
