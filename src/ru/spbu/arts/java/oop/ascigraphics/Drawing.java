@@ -32,7 +32,7 @@ public class Drawing {
     }
 
     //заполнения массива картинки
-    public void new_imege(){
+    private void new_imege(){
         this.image = new char[this.height][this.width];
         for (int i = 0; i< this.height; i++) {
             for (int j = 0; j < this.width; j++){
