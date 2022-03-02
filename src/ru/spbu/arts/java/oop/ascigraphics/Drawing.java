@@ -15,6 +15,14 @@ public class Drawing {
         new_imege();
     }
 
+    //конструктор для добавления рисунка
+    public  Drawing(int height , int width , char [][] image ) {
+        this.height = height;
+        this.width = width;
+        this.image = image;
+    }
+
+
     //конструктор для класса без символа
     public  Drawing(int height , int width) {
         this.height = height;
@@ -130,6 +138,16 @@ public class Drawing {
                 y -= 1;
         }
     }
+    public Drawing app_drawing(int x, int y, Drawing original) {
+        Drawing newimege = new Drawing (this.height, this.width, this.image);
+        for (int i = y; i < this.height; i++) {
+            for (int j = x; j < this.width; j++) {
+                newimege.image[j][i] = original.image[i-y][j-x];
+            }
+        }
+        return newimege;
+    }
     // возможные проблемы
     // не учтен выход за границу картинки
+    // проблема случа 0 0 '/'
 }
