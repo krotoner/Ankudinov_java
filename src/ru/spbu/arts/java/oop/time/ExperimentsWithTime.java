@@ -23,5 +23,4 @@ public class ExperimentsWithTime {
         //time update 30
         //Доброй ночи сейчас 23 : 20
     }
-
 }
