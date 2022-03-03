@@ -130,6 +130,7 @@ public class ImmutableDrawing {
 
     //создание окружности
     public  ImmutableDrawing draw_circle(int radius, int centre_x, int centre_y , char symbol) {
+        ImmutableDrawing  newimage = new ImmutableDrawing(this.height,this.width, this.symbol);
         int x = 0;
         int y = radius;
         int delta = 1 - 2 * radius;
@@ -156,7 +157,7 @@ public class ImmutableDrawing {
         }
         return  newimage;
     }
-    public ImmutableDrawing app_drawing(int x, int y, Drawing original) {
+    public Drawing app_drawing(int x, int y, Drawing original) {
         Drawing newimege = new Drawing (this.height, this.width, this.image);
         for (int i = y; i < this.height; i++) {
             for (int j = x; j < this.width; j++) {
