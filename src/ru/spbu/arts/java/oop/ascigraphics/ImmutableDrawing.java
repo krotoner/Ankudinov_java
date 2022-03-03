@@ -130,16 +130,15 @@ public class ImmutableDrawing {
 
     //создание окружности
     public  ImmutableDrawing draw_circle(int radius, int centre_x, int centre_y , char symbol) {
-        ImmutableDrawing newimage = new ImmutableDrawing(this.height,this.width, this.symbol);
         int x = 0;
         int y = radius;
         int delta = 1 - 2 * radius;
         int error = 0;
         while (y >= 0) {
-            newimage.image[centre_x + x][centre_y + y] = symbol;
-            newimage.image[centre_x + x][centre_y - y] = symbol;
-            newimage.image[centre_x - x][centre_y + y] = symbol;
-            newimage.image[centre_x - x][centre_y - y] = symbol;
+            setPoint(centre_x + x, centre_y + y, symbol);
+            setPoint(centre_x + x, centre_y - y, symbol);
+            setPoint(centre_x - x, centre_y + y, symbol);
+            setPoint(centre_x - x, centre_y - y, symbol);
             error = 2 * (delta + y) - 1;
             if ((delta < 0) && (error <= 0)) {
                 x += 1;
@@ -158,7 +157,7 @@ public class ImmutableDrawing {
         return  newimage;
     }
     public ImmutableDrawing app_drawing(int x, int y, Drawing original) {
-        ImmutableDrawing newimege = new ImmutableDrawing (this.height, this.width, this.image);
+        Drawing newimege = new Drawing (this.height, this.width, this.image);
         for (int i = y; i < this.height; i++) {
             for (int j = x; j < this.width; j++) {
                 newimege.image[j][i] = original.image[i-y][j-x];
