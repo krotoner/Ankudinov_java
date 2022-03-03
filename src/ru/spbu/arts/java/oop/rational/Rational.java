@@ -39,4 +39,5 @@ public class Rational {
         return result;
 
     }
+
 }
