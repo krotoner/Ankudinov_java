@@ -1,5 +1,5 @@
 # Java 4 семестр работы
-- Class Time - complite 
+- Class Time - table of completed 
 - Class Rational - complite
 - Class Draving - complite
 - Collection - complite
