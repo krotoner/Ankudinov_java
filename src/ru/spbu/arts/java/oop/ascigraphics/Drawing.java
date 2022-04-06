@@ -2,8 +2,8 @@ package ru.spbu.arts.java.oop.ascigraphics;
 public class Drawing {
 
     // данные картинки
-    public int height = 1; //высота
-    public int width = 1; //ширина
+    public int height; //высота
+    public int width; //ширина
     public char symbol = '.';
     public char [][]image ;
 
@@ -23,19 +23,11 @@ public class Drawing {
     }
 
 
-    //конструктор для класса без символа
-    public  Drawing(int height , int width) {
-        this.height = height;
-        this.width = width;
-        this.symbol = ' ';
-        new_imege();
-    }
-
     //заполнения массива картинки
     private void new_imege(){
         this.image = new char[this.height][this.width];
         for (int i = 0; i< this.height; i++) {
-            for (int j = 0; j < this.width; j++){
+            for (int j = 0; j < this.width; j++) {
                 this.image[i][j] = this.symbol;
             }
         }
