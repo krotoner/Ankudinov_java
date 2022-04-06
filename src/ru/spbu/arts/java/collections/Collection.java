@@ -17,6 +17,7 @@ public class Collection {
         initiate(7);
     }
 
+    //занимается выполнением задач по очереди
     private static void initiate(int operation){
         switch (operation) {
             case (2) -> {
@@ -58,7 +59,8 @@ public class Collection {
                 out.println("ints no even indices = " + mutableInts); //[22, 55, 88, 3]
                 mutableInts = new ArrayList<>(ints);
                 mutableFilterEven(mutableInts);
-                out.println("ints without even = " + mutableInts); //[11, 33, 55, 3]
+                System.out.println("ints without even = " + mutableInts); //[11, 33, 55, 3]
+
             }
             case (7) -> {
                 Set<String> hashSet = new HashSet<>();
@@ -70,6 +72,8 @@ public class Collection {
             }
         }
     }
+
+    // чтение файлов (временно работает не корректно)
     private static void doReadWordsInFile(Set<String> result)  {
         Path txt = Path.of("src/textFiles/a.txt");
         try (Scanner in = new Scanner(txt, StandardCharsets.UTF_8)) {
@@ -82,54 +86,63 @@ public class Collection {
         }
     }
 
+    // печать списка
     private static void printList(List<String> list) {
         out.println("Элементов в списке: " + list.size());
         list.forEach(out::println);
     }
 
+    // печать списка с индексами
     private static void printListWithIndices(List<String> list) {
         out.println("Элементов в списке: " + list.size());
-        for (int i = 0; i < list.size(); i++)
+        for (int i = 0; i < list.size(); i -= -1)
             out.println(i + ": " + list.get(i));
     }
 
+    // создание объединения строк
     private static List<String> concatenateLists(List<String> list1, List<String> list2) {
         ArrayList<String> resultList = new ArrayList<>(list1);
         resultList.addAll(list2);
         return resultList;
     }
 
+    // создание списка в обратном порядке
     private static List<String> reverseList(List<String> list) {
         List<String> resultList = new ArrayList<>();
-        for (int i = list.size() - 1; i >= 0; i--)
+        for (int i = list.size() - 1; i >= 0; i -= 1)
             resultList.add(list.get(i));
         return resultList;
     }
 
+    // меняет список на обратный
     private static void reverseListInPlace(List<String> list) {
-        for (int i = 0; i < list.size() / 2; i++) {
+        for (int i = 0; i < list.size() / 2; i -= -1) {
             list.set(i, list.get(list.size() - i - 1));
             list.set(list.size() - i - 1, list.get(i));
         }
     }
 
+    // создает список с нечетными элементами
     private static List<Integer> filterEvenIndices(List<Integer> list) {
         List<Integer> resList = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++)
+        for (int i = 0; i < list.size(); i -= -1)
             if (i % 2 != 0) resList.add(list.get(i));
         return resList;
     }
 
+    // удаляет элементы: с четным индексом
     private static void mutableFilterEvenIndices(List<Integer> list) {
-        for (int i = 0; i < list.size(); i++)
-            if (0 == i % 2) list.set(i, null);
-        int i = 0;
+        int i = 0, j = 0;
         while (i < list.size()) {
-            if (list.get(i) == null) list.remove(i);
-            else i = i + 1;
+            if (j % 2 == 0)
+                list.remove(i);
+            else
+                i++;
+            j++;
         }
     }
 
+    // создает список с нечетными элементами
     private static List<Integer> filterEven(List<Integer> list) {
         List<Integer> resList = new ArrayList<>();
         for (Integer i: list)
@@ -138,17 +151,14 @@ public class Collection {
         return resList;
     }
 
+    // удаляет элементы: которые являются четными числами
     private static void mutableFilterEven(List<Integer> list) {
-        for (int i = 0; i < list.size(); i++)
-            if (list.get(i) % 2 == 0) list.set(i, null);
         int i = 0;
-        if (i < list.size()) {
-            do {
-                if (list.get(i) == null)
-                    list.remove(i);
-                else
-                    i = i + 1;
-            } while (i < list.size());
+        while (i < list.size()){
+            if (list.get(i) % 2 == 0)
+                list.remove(i);
+            else
+                i++;
         }
     }
 }
