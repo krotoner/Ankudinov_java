@@ -1,6 +1,6 @@
 # Java 4 semester, works
 - Class Time - table of completed 
-- Class Rational - complete
+- Class Rational - rework
 - Class Driwing - complete
 - Collection - complete
 - Lambda - work
