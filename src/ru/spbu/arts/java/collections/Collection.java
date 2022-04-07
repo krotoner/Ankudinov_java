@@ -66,6 +66,7 @@ public class Collection {
                 Set<String> hashSet = new HashSet<>();
                 Set<String> linkedHashSet = new LinkedHashSet<>();
                 Set<String> treeSet = new TreeSet<>();
+
                 doReadWordsInFile(hashSet);
                 doReadWordsInFile(linkedHashSet);
                 doReadWordsInFile(treeSet);
@@ -73,9 +74,9 @@ public class Collection {
         }
     }
 
-    // чтение файлов (временно работает не корректно)
+    // чтение файлов
     private static void doReadWordsInFile(Set<String> result)  {
-        Path txt = Path.of("src/textFiles/a.txt");
+        Path txt = Path.of("src/textFiles/test_collection.txt");
         try (Scanner in = new Scanner(txt, StandardCharsets.UTF_8)) {
             while (in.hasNext()) {
                 String word = in.next();
