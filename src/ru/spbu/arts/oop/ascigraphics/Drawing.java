@@ -23,7 +23,6 @@ public class Drawing {
         this.image = image;
     }
 
-
     //заполнения массива картинки
     private void new_imege(){
         this.image = new char[this.height][this.width];
