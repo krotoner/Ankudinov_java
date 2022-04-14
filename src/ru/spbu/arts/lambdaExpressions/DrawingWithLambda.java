@@ -1,6 +1,6 @@
-package ru.spbu.arts.java.lambdaExpressions;
+package ru.spbu.arts.lambdaExpressions;
 
-import ru.spbu.arts.java.oop.ascigraphics.Drawing;
+import ru.spbu.arts.oop.ascigraphics.Drawing;
 
 public class DrawingWithLambda {
 

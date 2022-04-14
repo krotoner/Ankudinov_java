@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.time;
+package ru.spbu.arts.oop.time;
 public class Time {
 
     // формат времени 24 часа 60 минут
@@ -14,18 +14,10 @@ public class Time {
     // запись времени через ":"
     public String show(){
         String output = "";
-        if (this.hour > 9 && this.minute > 9){
-            output +=  this.hour + " : " +  this.minute;
-        }
-        else if (this.hour <= 9 && this.minute > 9){
-            output +=  "0" + this.hour + " : " +  this.minute;
-        }
-        else if (this.hour > 9 && this.minute <= 9){
-            output +=  this.hour + " : " +  "0"  +this.minute;
-        }
-        else if (this.hour <= 9 && this.minute <= 9){
-            output +=  "0" + this.hour + " : " +  "0" + this.minute;
-        }
+        if (this.hour > 9 && this.minute > 9) output +=  this.hour + " : " +  this.minute;
+        else if (this.hour <= 9 && this.minute > 9) output +=  "0" + this.hour + " : " +  this.minute;
+        else if (this.hour > 9 && this.minute <= 9) output +=  this.hour + " : " +  "0"  +this.minute;
+        else if (this.hour <= 9 && this.minute <= 9) output +=  "0" + this.hour + " : " +  "0" + this.minute;
         return output;
     }
 

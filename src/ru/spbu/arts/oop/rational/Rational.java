@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.rational;
+package ru.spbu.arts.oop.rational;
 public class Rational {
 
     //данный дроби

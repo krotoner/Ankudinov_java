@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.lambdaExpressions;
+package ru.spbu.arts.lambdaExpressions;
 
 public class PrintableLetter implements Printable{
     private String symbol;

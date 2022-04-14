@@ -1,4 +1,5 @@
-package ru.spbu.arts.java.oop.ascigraphics;
+package ru.spbu.arts.oop.ascigraphics;
+
 public class Drawing {
 
     // данные картинки
@@ -35,12 +36,11 @@ public class Drawing {
 
     //печать на экране
     public void print(){
-
         for(int i = 0; i < this.height; i++) {
-            String str = "";
+            StringBuilder str = new StringBuilder();
             for (int j = 0; j < this.width; j++) {
-                str += this.image[i][j];
-                str += ' ';
+                str.append(this.image[i][j]);
+                str.append(' ');
             }
             System.out.println(str);
         }
@@ -48,7 +48,8 @@ public class Drawing {
 
     //создание одного символа
     public void setPoint(int x , int  y , char symbol){
-        this.image[x][y] = symbol;
+        if (x <= this.height && y <= this.width )
+            this.image[x][y] = symbol;
     }
 
     //создание вертикальной линии
@@ -61,7 +62,7 @@ public class Drawing {
     //создание горизонтальной линии
     public void drawHorizontalLine(int top_width , int bottom_width , int height , char symbol) {
         for (int i = top_width; i < bottom_width; i++) {
-            setPoint(i, height, symbol);
+            setPoint(height, i, symbol);
         }
     }
 
@@ -108,26 +109,25 @@ public class Drawing {
         int x = 0;
         int y = radius;
         int delta = 1 - 2 * radius;
-        int error = 0;
-        while (y >= 0) {
-            setPoint(centre_x + x, centre_y + y, symbol);
-            setPoint(centre_x + x, centre_y - y, symbol);
-            setPoint(centre_x - x, centre_y + y, symbol);
-            setPoint(centre_x - x, centre_y - y, symbol);
-            error = 2 * (delta + y) - 1;
-            if ((delta < 0) && (error <= 0)) {
-                x += 1;
-                delta = delta + (2 * x + 1);
-                error = (2 * (delta - x)) - 1;
-            }
-            else if ((delta > 0) && (error > 0)) {
+        int error;
+        if (radius <= this.height/2 && radius <= this.width/2) {
+            while (y >= 0) {
+                setPoint(centre_x + x, centre_y + y, symbol);
+                setPoint(centre_x + x, centre_y - y, symbol);
+                setPoint(centre_x - x, centre_y + y, symbol);
+                setPoint(centre_x - x, centre_y - y, symbol);
+                error = 2 * (delta + y) - 1;
+                if ((delta < 0) && (error <= 0)) {
+                    x += 1;
+                    delta = delta + (2 * x + 1);
+                } else if ((delta > 0) && (error > 0)) {
+                    y -= 1;
+                    delta = delta + (1 - 2 * y);
+                    x += 1;
+                } else
+                    delta = delta + (2 * (x - y));
                 y -= 1;
-                delta = delta + (1 - 2 * y);
-                x += 1;
             }
-            else
-                delta = delta + (2 * (x - y));
-                y -= 1;
         }
     }
     public void app_drawing(int x, int y, Drawing original) {
@@ -138,7 +138,4 @@ public class Drawing {
             }
         }
     }
-    // возможные проблемы
-    // не учтен выход за границу картинки
-    // проблема случа 0 0 '/'
 }

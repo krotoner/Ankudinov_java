@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.ascigraphics;
+package ru.spbu.arts.oop.ascigraphics;
 public class ImmutableDrawing {
 
     // данные картинки
@@ -135,25 +135,25 @@ public class ImmutableDrawing {
         int y = radius;
         int delta = 1 - 2 * radius;
         int error = 0;
-        while (y >= 0) {
-            setPoint(centre_x + x, centre_y + y, symbol);
-            setPoint(centre_x + x, centre_y - y, symbol);
-            setPoint(centre_x - x, centre_y + y, symbol);
-            setPoint(centre_x - x, centre_y - y, symbol);
-            error = 2 * (delta + y) - 1;
-            if ((delta < 0) && (error <= 0)) {
-                x += 1;
-                delta = delta + (2 * x + 1);
-                error = (2 * (delta - x)) - 1;
-            }
-            else if ((delta > 0) && (error > 0)) {
+        if (radius <= this.height && radius <= this.width) {
+            while (y >= 0) {
+                setPoint(centre_x + x, centre_y + y, symbol);
+                setPoint(centre_x + x, centre_y - y, symbol);
+                setPoint(centre_x - x, centre_y + y, symbol);
+                setPoint(centre_x - x, centre_y - y, symbol);
+                error = 2 * (delta + y) - 1;
+                if ((delta < 0) && (error <= 0)) {
+                    x += 1;
+                    delta = delta + (2 * x + 1);
+                    error = (2 * (delta - x)) - 1;
+                } else if ((delta > 0) && (error > 0)) {
+                    y -= 1;
+                    delta = delta + (1 - 2 * y);
+                    x += 1;
+                } else
+                    delta = delta + (2 * (x - y));
                 y -= 1;
-                delta = delta + (1 - 2 * y);
-                x += 1;
             }
-            else
-                delta = delta + (2 * (x - y));
-            y -= 1;
         }
         return  newimage;
     }

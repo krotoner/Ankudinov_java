@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.collections;
+package ru.spbu.arts.collections;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

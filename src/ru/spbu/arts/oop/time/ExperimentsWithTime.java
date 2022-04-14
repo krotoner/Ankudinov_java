@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.time;
+package ru.spbu.arts.oop.time;
 
 public class ExperimentsWithTime {
     //просто класс main
