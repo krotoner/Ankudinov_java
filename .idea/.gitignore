@@ -1,3 +1,4 @@
+/out
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -6,3 +7,7 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+
+/src/javafx-sdk-18.0.1
+/src/someClasses
+/src/ru/spbu/arts/java/fractals

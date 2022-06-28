@@ -1,7 +1,10 @@
-module ru.spbu.arts.javafx{
-    requires java.base;
+module ru.spbu.arts.java.javafx {
+    requires javafx.base;
     requires javafx.graphics;
     requires javafx.controls;
-    opens ru.spbu.arts.javafx;
+    requires javafx.swing;
 
+    opens ru.spbu.arts.java.javafx;
+    opens ru.spbu.arts.java.fractals;
+    opens ru.spbu.arts.java.exem;
 }
