@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class EvilButton extends Application {
+public class noButton extends Application {
 
     String[] answers = new String[]{"Не думаю что стоит нажимать эту кнопку",
             "Пожалуйста, не нажимайте больше эту кнопку это опасно",

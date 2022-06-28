@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class ImagesAndColors extends Application {
+public class collors extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
