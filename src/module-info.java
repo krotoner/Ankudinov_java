@@ -6,5 +6,5 @@ module ru.spbu.arts.java.javafx {
 
     opens ru.spbu.arts.java.javafx;
     opens ru.spbu.arts.java.fractals;
-    opens ru.spbu.arts.java.exem;
+    opens ru.spbu.arts.java.exam;
 }

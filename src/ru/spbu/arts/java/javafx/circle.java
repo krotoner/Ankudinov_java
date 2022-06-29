@@ -41,9 +41,9 @@ public class circle extends Application {
     private Parent initInterface() {
         GridPane allPanes = new GridPane();
 
-        Label forRadius = new Label("Р Р°РґРёСѓСЃ");
-        Label forCircleColor = new Label("Р¦РІРµС‚ РєСЂСѓРіР°");
-        Label forFieldColor = new Label("Р¦РІРµС‚ С„РѕРЅР°");
+        Label forRadius = new Label("Радиус");
+        Label forCircleColor = new Label("Цвет круга");
+        Label forFieldColor = new Label("Цвет фона");
 
         radius.setValue(50);
         fieldColor.setValue(Color.BLUE);

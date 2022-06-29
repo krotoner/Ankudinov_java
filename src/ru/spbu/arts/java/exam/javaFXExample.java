@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.exem;
+package ru.spbu.arts.java.exam;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
