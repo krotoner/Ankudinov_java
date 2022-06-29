@@ -1,6 +1,7 @@
 package ru.spbu.arts.java.exam;
 
 import javafx.application.Application;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,14 +12,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
-public class exam_2020 extends Application {
+public class exam_2_2020 extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    private FileChooser fileChooser = new FileChooser();
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -41,11 +49,24 @@ public class exam_2020 extends Application {
             }
             else
                 root.setCenter(placeHolder); // Если изображение не выбрано, тогда показываем 'Изображение не выбрано'
+            File fileToSave = fileChooser.showSaveDialog(null);
+            if (fileToSave != null) {
+                System.out.println("file" + fileToSave);
+                assert image != null;
+                BufferedImage picture = SwingFXUtils.fromFXImage(image, null);
+                try {
+                    ImageIO.write(picture, "PDA", new File(fileToSave.getPath()));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         });
+
         Scene scene = new Scene(root, 640.0, 480.0); // Создание сцены.
         primaryStage.setScene(scene); // Установка сцены.
         primaryStage.setTitle("ImageChooser");
         primaryStage.show(); // Показываем окно.
+
     }
 }
 
@@ -61,22 +82,24 @@ class ImageChooser {
     // Метод для выбора изображения.
     public Image openImage() {
         File file = chooser.showOpenDialog(null); // Открываем файл.
+
         if (file != null) {
-            URI uri = file.toURI(); // Преобразуем файл в URI.
-            return new Image(uri.toString());
+            URI pgm = file.toURI(); // Преобразуем файл в URI.
+            return new Image(pgm.toString());
         }
         return null; // Если изображение не выбрано, тогда возвращаем null.
     }
 
-    // Метод для утановки форматов.
+    // Метод для установки форматов.
     public void setAvailableFormats(String ... formats) {
         filters.clear(); // Удаляем все прошлые форматы.
         if (formats != null && formats.length > 0) { // Если есть что добавить.
-            ExtensionFilter filter =
-                    new ExtensionFilter(String.join(", ", formats), formats);
+            ExtensionFilter filter = new ExtensionFilter(String.join(", ", formats), formats);
             filters.add(filter);
         }
     }
+    // Созраняем результат в новый файл
+
 }
 
 

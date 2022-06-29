@@ -1,4 +1,4 @@
 package ru.spbu.arts.java.exam;
 
-public class щ {
+public class exeam_2022 {
 }
