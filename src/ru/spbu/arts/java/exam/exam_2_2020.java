@@ -43,8 +43,8 @@ public class exam_2_2020 extends Application {
             Image image = chooser.openImage(); // Выбираем изображение.
             if (image != null) {
                 imageView.setImage(image); // Установка изображения.
-                imageView.setFitWidth(100.0); // Установка ширины в 100.0.
-                imageView.setFitHeight(100.0); // Установка высоты в 100.0.
+                imageView.setFitWidth(400.0); // Установка ширины в 100.0.
+                imageView.setFitHeight(400.0); // Установка высоты в 100.0.
                 root.setCenter(imageView); // Добавление изображения в контейнер.
             }
             else
