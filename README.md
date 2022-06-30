@@ -20,9 +20,10 @@
 - Exam 2018 часть 2 - 
 - Exam 2018 часть 3 -
 
-///// экзамен
+///// экзамен src\ru\spbu\arts\java\exam
 - Exam 2022 часть 1 - complete запустить Main 
-- Exam 2022 часть 2 - complete maybe
+- Exam 2022 часть 2.1 - complete 
+- Exam 2022 часть 2.2 - complete maybe
 - Exam 2022 часть 3 -
 
 ура оно работает и это правельная ветка)))
