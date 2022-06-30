@@ -72,8 +72,8 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
         System.out.println(this.Count_type);
         System.out.println(this.Name_type);
         for (int i = 0; i < this.Name_type.size(); i++){
-            this.result.add(this.Name_type);
-            this.result.add(this.Count_type);
+            this.result.add(this.Name_type.get(i));
+            this.result.add(this.Count_type.get(i));
         }
         System.out.println(this.result);
         return null;
