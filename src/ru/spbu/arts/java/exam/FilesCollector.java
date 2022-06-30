@@ -12,6 +12,9 @@ import java.util.Map;
 public class FilesCollector extends SimpleFileVisitor<Path> {
     String string;
     List list = new ArrayList();
+    List Count_type = new ArrayList();
+    List Name_type = new ArrayList();
+    List result = new ArrayList();
 
 
     public List<Path> getAllFiles() {
@@ -39,9 +42,15 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
             System.out.format("Other: %s : ", file);
         }
         System.out.println("found a file");
+
         this.string += file.getFileName();
         this.string += ",";
         this.list.add(file.getFileName());
+
+
+        this.Name_type.add(file.getFileName());
+        this.Count_type.add(file.getNameCount());
+
         return FileVisitResult.CONTINUE;
     }
 
@@ -60,7 +69,13 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
     }
 
     public Map<String, List<Path>> getFilesByExtension() {
-
+        System.out.println(this.Count_type);
+        System.out.println(this.Name_type);
+        for (int i = 0; i < this.Name_type.size(); i++){
+            this.result.add(this.Name_type);
+            this.result.add(this.Count_type);
+        }
+        System.out.println(this.result);
         return null;
     }
 }

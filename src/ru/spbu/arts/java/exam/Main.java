@@ -20,12 +20,14 @@ public class Main {
         FilesCollector fc = new FilesCollector();
         Files.walkFileTree(Path.of("A:\\Progect_site"), fc);
         List<Path> allFiles = fc.getAllFiles();
+        System.out.println("2.1");
         System.out.println(allFiles);
-        // простите сделал строкой
+        //там закомментированно можно и строкой вывести смотрится удобнее
 
         // 2.2 часть
+        System.out.println("2.2");
         Map<String, List<Path>> allFilesByExtension = fc.getFilesByExtension();
-
+        System.out.println(allFilesByExtension);
 
         // 3 часть
 
