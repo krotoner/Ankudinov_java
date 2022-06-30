@@ -5,14 +5,19 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class FilesCollector extends SimpleFileVisitor<Path> {
     String string;
+    List list = new ArrayList();
 
 
-    public String[] getAllFiles() {
-        System.out.println(this.string);
-        return null;
+    public List<Path> getAllFiles() {
+        //System.out.println(this.string);
+        //System.out.println(this.list);
+        return this.list;
     }
 
     @Override
@@ -20,6 +25,7 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
         System.out.format("Directory: %s%n", dir);
         this.string += dir.getFileName();
         this.string += " : ";
+        this.list.add(dir.getFileName());
         return FileVisitResult.CONTINUE;
     }
 
@@ -35,6 +41,7 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
         System.out.println("found a file");
         this.string += file.getFileName();
         this.string += ",";
+        this.list.add(file.getFileName());
         return FileVisitResult.CONTINUE;
     }
 
@@ -50,5 +57,10 @@ public class FilesCollector extends SimpleFileVisitor<Path> {
         System.err.println("error a file");
         System.err.println(exc);
         return FileVisitResult.CONTINUE;
+    }
+
+    public Map<String, List<Path>> getFilesByExtension() {
+
+        return null;
     }
 }
